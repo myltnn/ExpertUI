@@ -1,0 +1,62 @@
+<div class="container">
+        <h1>Add Experts</h1>
+        <form>
+          <div class="form-group">
+            <label for="name">Expert name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+     
+          <div class="form-group">
+            <label for="alterEgo">Address</label>
+            <input type="text" class="form-control" id="alterEgo">
+          </div>
+     
+          <button type="submit" class="btn btn-success">Submit</button>
+     
+        </form>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+  <div class="p-w-md m-t-sm">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox">
+          <div class="ibox-content">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="control-label" for="expert_name">Expert Name</label>
+                  <input type="text" id="expert_name" name="expert_name" value="" placeholder="Expert Name" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <label class="control-label" for="address">address</label>
+                  <input type="text" id="address" name="address" value="" placeholder="Address" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <label class="control-label" for="email">email</label>
+                  <input type="text" id="email" name="email" value="" placeholder="Email" class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <tbody>
+                  <tr *ngFor = "let expert of experts ">
+                      <td>{{expert.properties.firstName[0].value}} {{expert.properties.lastName[0].value}}</td>
+                      <td>{{expert.properties.address[0].value}}</td>
+                      <td>{{expert.properties.email[0].value}}</td> 
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
