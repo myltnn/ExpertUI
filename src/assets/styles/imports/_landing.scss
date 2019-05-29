@@ -550,32 +550,120 @@ body.landing-page {
       border-radius: 4px;
     }
 
-    /* Bump up size of carousel content */
-    .carousel-caption p {
-      margin-bottom: 20px;
-      font-size: 14px;
-      line-height: 1.4;
+   
+    .landing-page .carousel {
+        height: 470px;
     }
 
-    .featurette-heading {
-      font-size: 50px;
-    }
-  }
-  @media (max-width: 992px) {
-    .carousel-image {
-      display: none;
-    }
-  }
-  @media (max-width: 768px) {
-    .carousel-caption,
-    .carousel-caption.blank {
-      left: 5%;
-      top: 80px;
+    .landing-page .carousel-caption {
+        z-index: 10;
     }
 
-    .carousel-caption h1 {
-      font-size: 28px;
+    .landing-page .carousel .item {
+        height: 470px;
+        background-color: #777;
     }
+
+    .landing-page .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 470px;
+    }
+
+    .landing-page .carousel-fade .carousel-inner .item {
+        opacity: 0;
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+    }
+
+    .landing-page .carousel-fade .carousel-inner .active {
+        opacity: 1;
+    }
+
+        .landing-page .carousel-fade .carousel-inner .active.left,
+        .landing-page .carousel-fade .carousel-inner .active.right {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+    .landing-page .carousel-fade .carousel-inner .next.left,
+    .landing-page .carousel-fade .carousel-inner .prev.right {
+        opacity: 1;
+    }
+
+    .landing-page .carousel-fade .carousel-control {
+        z-index: 2;
+    }
+
+    .landing-page .carousel-control.left,
+    .landing-page .carousel-control.right {
+        background: none;
+    }
+
+    .landing-page .carousel-control {
+        width: 6%;
+    }
+
+    .landing-page .carousel-inner .container {
+        position: relative;
+        overflow: visible;
+    }
+
+    .landing-page .carousel-inner {
+        overflow: visible;
+    }
+
+    .landing-page .carousel-caption {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        bottom: auto;
+        right: auto;
+        text-align: left;
+    }
+
+    .landing-page .carousel-caption {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        bottom: auto;
+        right: auto;
+        text-align: left;
+    }
+
+        .landing-page .carousel-caption.blank {
+            top: 140px;
+        }
+
+    .landing-page .carousel-image {
+        position: absolute;
+        right: 10px;
+        top: 150px;
+    }
+
+    .landing-page .carousel-indicators {
+        padding-right: 60px;
+    }
+
+    .landing-page .carousel-caption h1 {
+        font-weight: 700;
+        font-size: 38px;
+        text-transform: uppercase;
+        text-shadow: none;
+        letter-spacing: -1.5px;
+    }
+
+    .landing-page .carousel-caption p {
+        font-weight: 700;
+        text-transform: uppercase;
+        text-shadow: none;
+    }
+
+   
+   
 
     .navbar.navbar-scroll .navbar-brand {
       margin-top: 6px;
