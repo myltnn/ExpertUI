@@ -1,19 +1,19 @@
 <div class="container">
-        <h1>Add Experts</h1>
-        <form>
-          <div class="form-group">
-            <label for="name">Expert name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-     
-          <div class="form-group">
-            <label for="alterEgo">Address</label>
-            <input type="text" class="form-control" id="alterEgo">
-          </div>
-     
-          <button type="submit" class="btn btn-success">Submit</button>
-     
-        </form>
+     <div>
+      <form [formGroup]="expertData">
+  
+        <label>
+          Name:
+          <input type="text" formControlName="name">
+        </label>
+      
+        <label>
+          email:
+          <input type="text" formControlName="email">
+        </label>
+        <button type="submit" [disabled]="!creationState">Submit</button>
+      </form>      
+   </div>    
 </div>
 <div class="wrapper wrapper-content animated fadeIn">
   <div class="p-w-md m-t-sm">
@@ -46,9 +46,9 @@
               <table class="table table-striped">
                 <tbody>
                   <tr *ngFor = "let expert of experts ">
-                      <td>{{expert.properties.firstName[0].value}} {{expert.properties.lastName[0].value}}</td>
-                      <td>{{expert.properties.address[0].value}}</td>
-                      <td>{{expert.properties.email[0].value}}</td> 
+                      <td>{{expert.name}}</td>
+                      <td>{{expert.address}}</td>
+                      <td>{{expert.email}}</td> 
                   </tr>
                 </tbody>
               </table>
