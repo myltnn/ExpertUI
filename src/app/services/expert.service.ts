@@ -7,15 +7,15 @@ export class ExpertService {
   url: string
   
   constructor(private http: HttpClient) {
-      this.url = 'https://contributions.azurewebsites.net/api/contributions/expert/'
+      this.url = 'https://contributions.azurewebsites.net/api/contributions/'
   }
 
   getExperts() {
-    return this.http.get(this.url);
+    return this.http.get(this.url + 'expert/');
   }
 
   getExpert(id) {
-      return this.http.get(this.url + id);
+      return this.http.get(this.url + 'expert/id/' + id);
   }
 
   updateExpert(id, data) {
@@ -23,6 +23,15 @@ export class ExpertService {
   }
 
   createExpert(data) {
-    return this.http.put(this.url, data);
+    let expertData = {
+      "type":"expert",
+      "name":data.name,
+      "age":data.age,
+      "relatedTo":data.relatedTo,
+      "relation":data.relation,
+      "comment":data.comment
+    };
+
+    return this.http.put(this.url, expertData);
   }
 }
