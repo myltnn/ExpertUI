@@ -27,11 +27,13 @@ export class ExpertService {
       "type":"expert",
       "name":data.name,
       "age":data.age,
+      "address":data.address,
       "relatedTo":data.relatedTo,
       "relation":data.relation,
       "comment":data.comment
     };
 
-    return this.http.put(this.url, expertData);
+    //return this.http.put(this.url, expertData);
+    return this.http.post(this.url, expertData);
   }
 }

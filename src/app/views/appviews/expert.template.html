@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="ibox">
-          <div class="ibox-content">
+          <div class="ibox-content" *ngIf="!creationState">
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
@@ -25,7 +25,6 @@
                 </div>
               </div>
             </div>
-
             <div class="table-responsive">
               <table class="table table-striped">
                 <tbody>
@@ -37,67 +36,43 @@
                 </tbody>
               </table>
             </div>
-    
-	
           </div>
-  
-  
-<div class="form">
-      
-    
-      <div class="tab-content">
-        <div id="login">   
-          <h1>Create Expert</h1>
-          
-         
-          
-          <div class="top-row">
-            <div class="field-wrap">
-            
-              <input type="firstname" placeholder="Enter First Name" />
-            </div>
-        
-            <div class="field-wrap">
-             
-              <input type="lastname"placeholder="Enter Last Name"/>
-            </div>
-          </div>
-
-          <div class="field-wrap">
-            
-            <input type="address"placeholder="Enter Expert Address"/>
-          </div>
-          
-          <div class="field-wrap">
-          
-            <input type="age"placeholder="Enter Age"/>
-          </div>
-          
-          <button type="submit" class="button button-block">Submit</button>
-        </div>
-        
-        <div id="login">   
-            <div class="field-wrap">
-            
-            <input type="address"placeholder="address"/>
-          </div>
-          
-          <div class="field-wrap">
-          
-           
-            <input type="age"placeholder="age"/>
-          </div>
-        </div>
-        
-      </div><!-- tab-content -->
-      
-</div> <!-- /form -->
-		</div>
-        </div>
-		
-		
+          <div class="form" *ngIf="creationState">
+            <form #expertData = "ngForm" (ngSubmit) = "onClickSubmit(expertData.value)" >
+              <div class="tab-content">
+                <div id="login">   
+                  <h1>Create Expert</h1>
+                  <div class="top-row">
+                    <div class="field-wrap">
+                      <input type="text" name = "firstName" ngModel placeholder="Enter First Name"/>
+                    </div>
+                    <div class="field-wrap">
+                      <input type="text" name = "lastName" ngModel  placeholder="Enter Last Name"/>
+                    </div>
+                  </div>
+                  <div class="field-wrap">
+                    <input type="text" name = "address" ngModel placeholder="Enter Expert Address"/>
+                  </div>
+                  <div class="field-wrap">
+                    <input type="text" name = "age" ngModel  placeholder="Enter Age"/>
+                  </div>
+                  <button type="submit" class="button button-block">Submit</button>
+                  <div class="field-wrap">  
+                      <button type="submit" class="button button-block" (click)="createToggle()">Cancel</button> 
+                  </div>
+                </div>
+                <div id="needed">   
+                </div>
+              </div><!-- tab-content -->
+            </form>
+          </div> <!-- /form -->
+		    </div>
+      </div>
+      <div class="row">
+        <button *ngIf="!creationState" (click)="createToggle()" type="submit" class="button button-block">Create Expert</button>
       </div>
     </div>
+  </div>
 </div>
 
 
