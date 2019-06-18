@@ -9,25 +9,29 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ExpertComponent { 
   experts: any;
   expert: any;
-  updateExpertStatus: String;
-  expertData;
-  creationState = false;
+  expertStatus: String;
+  public creationState: boolean = false;
 
   constructor(public expertService: ExpertService){
     this.loadExperts();
   }
 
-  ngOnInit() {
-    //https://angular.io/guide/reactive-forms
-    //https://angular.io/guide/forms
-    this.expertData = new FormGroup({
-      name: new FormControl(""),
-      age: new FormControl(""),
-      address: new FormControl(""),
-      email: new FormControl(""),
-      comment: new FormControl("")
-    }); 
- }
+  onClickSubmit(data) {
+      this.expertStatus = 'Adding the expert to the system.';
+      this.createExpert({
+        name: data.firstName + " " + data.lastName,
+        age: data.age,
+        address: data.address
+      });
+  }
+
+  onClickCancel(data) {
+    this.createToggle();
+  }
+
+  createToggle() {
+    this.creationState = !this.creationState;
+  }
 
   loadExperts(){
     this.expertService.getExperts().subscribe(response => {
@@ -42,15 +46,17 @@ export class ExpertComponent {
     });
   }
 
-  createExpert(){
-    this.expertService.createExpert({}).subscribe(response => {
-      this.updateExpertStatus = 'New expert is created';
+  createExpert(data){
+    return this.expertService.createExpert(data).subscribe(response => {
+      this.expertStatus = 'The expert is added to the system successfuly.';
+      this.loadExperts();
+      this.createToggle();
     });
   }
 
   updateExpert(id){
     this.expertService.updateExpert(id, {}).subscribe(response => {
-      this.updateExpertStatus = 'Existing expert is updated';
+      this.expertStatus = 'Existing expert is updated';
     });    
   }
 
